@@ -1,4 +1,5 @@
 import { Observer } from 'mobx-react-lite';
+import { createElement } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
@@ -114,7 +115,7 @@ export function Sidebar(props: SidebarProps) {
                           mr: 2,
                           justifyContent: 'center',
                         }}>
-                        {item.icon}
+                        {createElement(item.icon)}
                       </ListItemIcon>
                       <ListItemText
                         primary={item.text}

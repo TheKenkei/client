@@ -1,11 +1,59 @@
 import { action, makeObservable, observable } from 'mobx';
 
+import BadgeIcon from '@mui/icons-material/Badge';
+import CorporateFareIcon from '@mui/icons-material/CorporateFare';
+import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
+import InsertChartIcon from '@mui/icons-material/InsertChart';
+import NearMeIcon from '@mui/icons-material/NearMe';
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import PersonIcon from '@mui/icons-material/Person';
+import StarIcon from '@mui/icons-material/Star';
+
 import { Link } from '@app/models';
 
-import { links } from './Base.links';
-
 export class LinksStore {
-  links = links;
+  links: Link[] = [
+    {
+      href: '/profile',
+      text: 'Профиль',
+      icon: PersonIcon,
+    },
+    {
+      href: '/favorite',
+      text: 'Избранное',
+      icon: StarIcon,
+    },
+    {
+      href: '/maps',
+      text: 'Карта',
+      icon: NearMeIcon,
+    },
+    {
+      href: '/transport',
+      text: 'Управление транспортом',
+      icon: DirectionsCarIcon,
+    },
+    {
+      href: '/employees',
+      text: 'Управление сотрудниками',
+      icon: BadgeIcon,
+    },
+    {
+      href: '/analytics',
+      text: 'Аналитика',
+      icon: InsertChartIcon,
+    },
+    {
+      href: '/users',
+      text: 'Пользователи',
+      icon: PeopleAltIcon,
+    },
+    {
+      href: '/organizations',
+      text: 'Организации',
+      icon: CorporateFareIcon,
+    },
+  ];
   constructor() {
     makeObservable(this, {
       links: observable,
@@ -33,38 +81,3 @@ export class LinksStore {
     );
   }
 }
-
-// links: Link[] = [
-//   {
-//     href: '/profile',
-//     text: 'Профиль',
-//   },
-//   {
-//     href: '/favorite',
-//     text: 'Избранное',
-//   },
-//   {
-//     href: '/maps',
-//     text: 'Карта',
-//   },
-//   {
-//     href: '/transport',
-//     text: 'Управление транспортом',
-//   },
-//   {
-//     href: '/employees',
-//     text: 'Управление сотрудниками',
-//   },
-//   {
-//     href: '/analytics',
-//     text: 'Аналитика',
-//   },
-//   {
-//     href: '/users',
-//     text: 'Пользователи',
-//   },
-//   {
-//     href: '/organizations',
-//     text: 'Организации',
-//   },
-// ];
