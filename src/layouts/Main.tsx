@@ -8,7 +8,6 @@ import InsertChartIcon from '@mui/icons-material/InsertChart';
 import NearMeIcon from '@mui/icons-material/NearMe';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import PersonIcon from '@mui/icons-material/Person';
-import StarIcon from '@mui/icons-material/Star';
 import MuiBox, { BoxProps as MuiBoxProps } from '@mui/material/Box';
 import { styled, useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -45,14 +44,10 @@ const Box = styled(MuiBox, {
 
 const items: ILink[] = [
   {
-    href: '/profile',
+    href: '/',
     text: 'Профиль',
     icon: <PersonIcon />,
-  },
-  {
-    href: '/favorite',
-    text: 'Избранное',
-    icon: <StarIcon />,
+    exact: true,
   },
   {
     href: '/maps',

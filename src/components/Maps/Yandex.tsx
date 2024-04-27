@@ -18,25 +18,23 @@ export function Yandex() {
     console.log('you clicked on the Placemark');
   };
   return (
-    <>
-      <Box
-        sx={{
-          position: 'absolute',
-          width: '100%',
-          height: '100%',
-        }}>
-        <YMaps>
-          <Map width={'100%'} height={'100%'} defaultState={defaultState}>
-            <TypeSelector />
-            <RulerControl />
-            <Placemark
-              onClick={handleClick}
-              options={{}}
-              geometry={[55.684758, 37.738521]}
-            />
-          </Map>
-        </YMaps>
-      </Box>
-    </>
+    <Box
+      sx={{
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+      }}>
+      <YMaps>
+        <Map width={'100%'} height={'100%'} defaultState={defaultState}>
+          <TypeSelector />
+          <RulerControl />
+          <Placemark
+            onClick={handleClick}
+            options={{}}
+            geometry={[55.684758, 37.738521]}
+          />
+        </Map>
+      </YMaps>
+    </Box>
   );
 }

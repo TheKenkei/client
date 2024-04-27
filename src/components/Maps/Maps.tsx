@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import { Box, Button } from '@mui/material';
+import { Box, Button, Stack } from '@mui/material';
 import { SelectChangeEvent } from '@mui/material/Select';
 
 import { Cesium, Menu, Yandex } from '@app/components/Maps';
@@ -10,7 +10,6 @@ import { items as fakeItems } from './transport.fake';
 
 const style = {
   box: {
-    background: '#F1F3F4',
     '--header-height': '64px',
     '--header-height-mobile': '56px',
     height: `calc(100vh - (var(--header-height) + 2.7rem)) `,
@@ -38,23 +37,20 @@ export function Maps() {
     console.log(maps, event);
   };
   return (
-    <>
-      <Box
-        sx={{
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-        }}>
-        <Box style={{ ...style.box }} sx={{ position: 'relative' }}>
-          <Menu items={items} maps={maps} handleChangeMaps={handleChangeMaps} />
-          {maps === 'yandex' ? <Yandex /> : <div id="cesium"> </div>}
-        </Box>
-        <></>
-
-        <Button fullWidth variant="contained">
-          Начать движение
-        </Button>
+    <Stack
+      spacing={2}
+      sx={{
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+      }}>
+      <Box style={{ ...style.box }} sx={{ position: 'relative' }}>
+        <Menu items={items} maps={maps} handleChangeMaps={handleChangeMaps} />
+        {maps === 'yandex' ? <Yandex /> : <div id="cesium"> </div>}
       </Box>
-    </>
+      <Button fullWidth variant="contained">
+        Начать движение
+      </Button>
+    </Stack>
   );
 }

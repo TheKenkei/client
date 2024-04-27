@@ -34,7 +34,7 @@ export function Sidebar(props: SidebarProps) {
       open={sidebarOpen}
       anchor="left"
       {...other}>
-      <List sx={{ background: '#38373A', flexGrow: 1, py: 0 }}>
+      <List sx={{ bgcolor: theme.palette.common.black, flexGrow: 1, py: 0 }}>
         <ListItem
           sx={{
             display: 'flex',
@@ -103,6 +103,9 @@ export function Sidebar(props: SidebarProps) {
                   minHeight: 48,
                   justifyContent: 'center',
                   px: 2.5,
+                  ':hover': {
+                    bgcolor: theme.palette.primary.dark,
+                  },
                 }}>
                 <ListItemIcon
                   sx={{

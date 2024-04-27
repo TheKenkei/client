@@ -18,7 +18,6 @@ import {
 import { Main } from '@app/layouts';
 
 import './components/Auth/ChangePassword';
-import OtherContent from './layouts/OtherContent';
 
 function App() {
   const pathname = useLocation();
@@ -30,14 +29,13 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Main />}>
-          <Route index path="/profile" element={<Profile />} />
-          <Route index path="/organizations" element={<Organizations />} />
-          <Route index path="/favorite" element={<OtherContent content="Favorite" />} />
-          <Route index path="/maps" element={<Maps />} />
-          <Route index path="/transport" element={<TransportManagement />} />
-          <Route index path="/employees" element={<Employees />} />
-          <Route index path="/analytics" element={<Analytics />} />
-          <Route index path="/users" element={<Users />} />
+          <Route index element={<Profile />} />
+          <Route path="/organizations" element={<Organizations />} />
+          <Route path="/maps" element={<Maps />} />
+          <Route path="/transport" element={<TransportManagement />} />
+          <Route path="/employees" element={<Employees />} />
+          <Route path="/analytics" element={<Analytics />} />
+          <Route path="/users" element={<Users />} />
         </Route>
         <Route path="/auth" element={<Auth />}>
           <Route path="login" index element={<Login />} />
