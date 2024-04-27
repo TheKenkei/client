@@ -4,6 +4,9 @@ import { AccountCircle } from '@mui/icons-material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { AppBar, Box, IconButton, Menu, MenuItem, Toolbar } from '@mui/material';
 
+import api from '@app/services/api/api';
+import { useStore } from '@app/store';
+
 interface HeaderProps {
   sidebarOpen: boolean;
   handleSidebarToggle: () => void;
@@ -14,6 +17,25 @@ export function Header(props: HeaderProps) {
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
+
+  const onClick = () => {
+    appStore.setLoading(true);
+  };
+  const onError = () => {
+    // appStore.setError('404 : Not Found ');
+    api.get('https://apple.com');
+  };
+  const onGet = () => {
+    // api.get('/auth/me');
+    api
+      .get('https://jsonplaceholder.typicode.com/posts/1')
+      .then((response) => response)
+      .then((json) => console.log(json));
+  };
+  const onClickFalse = () => {
+    appStore.setLoading(false);
+  };
+  const { appStore } = useStore();
 
   const handleClose = () => {
     setAnchorEl(null);
@@ -68,6 +90,10 @@ export function Header(props: HeaderProps) {
             <MenuItem onClick={handleClose}>Profile</MenuItem>
             <MenuItem onClick={handleClose}>My account</MenuItem>
           </Menu>
+          <button onClick={onClick}> true </button>
+          <button onClick={onGet}> get </button>
+          <button onClick={onError}> error </button>
+          <button onClick={onClickFalse}> false</button>
         </div>
       </Toolbar>
     </AppBar>
