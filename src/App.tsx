@@ -15,6 +15,7 @@ import {
   TransportManagement,
   Users,
 } from '@app/components';
+import AuthGuard from '@app/guards/AuthGuards';
 import { Main } from '@app/layouts';
 
 import './components/Auth/ChangePassword';
@@ -29,7 +30,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Main />}>
+        <Route path="/" element={<AuthGuard outlet={<Main />} />}>
           <Route index path="/profile" element={<Profile />} />
           <Route index path="/organizations" element={<Organizations />} />
           <Route index path="/favorite" element={<OtherContent content="Favorite" />} />
@@ -39,7 +40,7 @@ function App() {
           <Route index path="/analytics" element={<Analytics />} />
           <Route index path="/users" element={<Users />} />
         </Route>
-        <Route path="/auth" element={<Auth />}>
+        <Route path="/" element={<AuthGuard id="auth" outlet={<Auth />} />}>
           <Route path="login" index element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="forgot-password" element={<ForgotPassword />} />

@@ -7,3 +7,5 @@ export * from './service';
 export * from './sidebar';
 export * from './transport';
 export * from './user';
+
+export * from '@app/models/auth';
